@@ -1,0 +1,110 @@
+NPM doesn't stands for node package Manager
+npm is a standard repositories for all the packages, and is used to manage the packages
+we can create our own package using npm init.
+it creates package.json of our own package in our folder
+in this we have an important package called bundler
+Bundlers:
+A bundler is a tool that bundles our app, packages our app so
+that it can be shipped to production.
+Examples of Bundlers:
+Webpack
+Vite
+Parcel
+📢 NOTE: In create-react-app, the bundler used is webpack.
+Bundlers are packages. If we want to use a package in our
+code, we have to use a package manager.
+We use a package manager known as npm or yarn
+
+---
+
+\*\*Configuring the Project:
+npm init
+It creates a package.json file.
+Now to install parcel we will do:
+npm install -D parcel
+Now we will get a package-lock.json file.
+Now we will get a package-lock.json file.
+
+- package.json:
+  Package.json file is a configuration for NPM. Whatever
+  packages our project needs, we install those packages using
+  npm install <packageName>.
+  Igniting Our App! ( Namaste-React ) 4
+  Once package installation is complete, their versions and
+  configuration related information is stored as dependencies
+  inside package.json file.
+- package-lock.json:
+  Package-lock.json locks the exact version of packages being
+  used in the project.
+  Q ) What is difference between package.json and
+  package.lock.json?
+  In package. json we have information about generic version
+  of installed packages whereas in package.lock.json we have
+  information about the specific or exact version of
+  installed packages.
+- node_modules:
+  Which gets installed is like a database for the npm.
+  Every dependency in node_module will have its package.json.
+  Node modules are very heavy so we should always put this in git ignore.
+  // "devDependencies": {
+  "parcel": "^2.13.3"
+  }//"parcel"
+  Type: Key inside "devDependencies"
+  Purpose: This refers to the parcel package, which is a zero-configuration bundler for web applications.
+  Parcel is only needed for development (not production).
+  Q) Why is it in "devDependencies"?
+  It helps in development but is not needed when running the final app.
+  "^2.13.3"
+  Type: Versioning information
+
+Symbol: ^ (Caret)
+
+Q) What does ^ mean?
+
+It allows updates to newer minor and patch versions but not major versions.
+
+# 📢 NOTE: Never touch node_modules and package-lock.json
+
+To ignite our app:
+Igniting Our App! ( Namaste-React ) 5
+npx parcel index.html
+npx means ‘execute using npm’
+index.html is the entry point
+
+- Hot Module Replacement (HMR):
+  It means that parcel will keep a track of all the files which you are updating.
+  There is File Watcher Algorithm (written in C++). It keeps
+  track of all the files which are changing realtime and it
+  tells the server to reload.
+  These are all done by PARCEL
+- parcel-cache:
+  Parcel caches code all the time.
+  When we run the application, a build is created which takes
+  some time in ms.
+  If we make any code changes and save the application, another
+  build will be triggered which might take even less time than
+  the previous build.
+  This reduction of time is due to parcel cache.
+  Parcel immediately loads the code from the cache every time
+  there is a subsequent build.
+  On the very first build parcel creates a folder .parcelcache
+  where it stores the caches in binary codeformat.
+  Parcel gives faster build, faster developer experience because of caching.
+
+* dist:
+  It keeps the files minified for us.
+  When bundler builds the app, the build goes into a folder
+  called dist.
+  The `/dist` folder contains the minimized and optimised
+  version the source code.
+  Along with the minified code, the /dist folder also comprises
+  of all the compiled modules that may or may not be used with
+  other systems.
+  When we run command:
+  npx parcel index.html
+  This will create a faster development version of our project
+  and serves it on the server.
+  When I tell parcel to make a production build:
+  npx parcel build index.html
+  It creates a lot of things, minify your file.
+  And the parcel will build all the production files to the dist folder.
