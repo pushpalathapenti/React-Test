@@ -18,7 +18,7 @@ We use a package manager known as npm or yarn
 ---
 
 \*\*Configuring the Project:
-npm init   
+npm init  
 It creates a package.json file.
 Now to install parcel we will do:
 npm install -D parcel
@@ -92,44 +92,44 @@ index.html is the entry point
   Parcel gives faster build, faster developer experience because of caching.
 
 * dist:
-  It keeps the files minified for us.
-  When bundler builds the app, the build goes into a folder
-  called dist.
-  The `/dist` folder contains the minimized and optimised
-  version the source code.
-  Along with the minified code, the /dist folder also comprises
-  of all the compiled modules that may or may not be used with
-  other systems.
-  When we run command:
-  npx parcel index.html
-  This will create a faster development version of our project
-  and serves it on the server.
-  When I tell parcel to make a production build:
-  npx parcel build index.html
-  It creates a lot of things, minify your file.
-  And the parcel will build all the production files to the dist folder.
-  ==========================================
-  Q ) What is another way of starting the build of the project?
-  We will be creating scripts instead of using “npx parcel
-  index.html”. We can create different scripts for starting our
-  project in Development and Production.
-  In package.json , in the script section write the following
-  command.
-  "scripts": {
-  "test": "jest",
-  "start": "parcel index.html",
-  "build": "parcel build index.html"
-  },
-  To run these scripts, enter the following commands in the
-  terminal,
-  To start:
-  npm run start
-  or
-  npm start
-  For Production Build:
-  npm run build
-  💡 If you’re not sure how to start the project in a new
-  company then find these scripts in package.json and use them.
+It keeps the files minified for us.
+When bundler builds the app, the build goes into a folder
+called dist.
+The `/dist` folder contains the minimized and optimised
+version the source code.
+Along with the minified code, the /dist folder also comprises
+of all the compiled modules that may or may not be used with
+other systems.
+When we run command:
+npx parcel index.html
+This will create a faster development version of our project
+and serves it on the server.
+When I tell parcel to make a production build:
+npx parcel build index.html
+It creates a lot of things, minify your file.
+And the parcel will build all the production files to the dist folder.
+==========================================
+Q ) What is another way of starting the build of the project?
+We will be creating scripts instead of using “npx parcel
+index.html”. We can create different scripts for starting our
+project in Development and Production.
+In package.json , in the script section write the following
+command.
+"scripts": {
+"test": "jest",
+"start": "parcel index.html",
+"build": "parcel build index.html"
+},
+To run these scripts, enter the following commands in the
+terminal,
+To start:
+npm run start
+or
+npm start
+For Production Build:
+npm run build
+💡 If you’re not sure how to start the project in a new
+company then find these scripts in package.json and use them.
 Q ) How to use JavaScript code inside JSX?
 Inside a React Component when ‘{}’ parenthesis is present we can
 write any JavaScript expression inside it.
@@ -144,3 +144,102 @@ Q ) What will happen if we call 2 elements inside each other?
 If we put 2 components inside each other, then it will go into
 an infinite loop and the stack will overflow. It will freeze
 your browser, so it’s not recommended to do so.
+
+- Everything in react is a component.
+  Component :
+  They are 2 types of component in react
+  1)Class based component - OLD Way
+  2)Functional Component - New Way
+  React Functional Component is just a normal javascript function which returns some JSX
+  => component composition: composisng two components into one another
+  Q) What is a Functional Component?
+  its a normal Javascript Function which returns some piece of JSX code.
+  =======================================================
+  Advantages of using JSX.
+
+1. Sanitizes the data
+   If someone gets access to your JS code and sends some malicious
+   data which will then get displayed on the screen, that attack is
+   called cross-site scripting.
+   It can read cookies, local storage, session storage, get
+   cookies, get info about your device, and read data. JSx takes
+   care of your data.
+   If some API passes some malicious data JSX will escape it. It
+   prevents cross-site scripting and sanitizes the data before
+   rendering
+2. Makes code readable
+   JSX makes it easier to write code as we are no longer creating
+   elements using React.createElement()
+3. Makes code simple and elegant
+4. Show more useful errors and warnings
+5. JSX prevents code injections (attacks)
+   Props:- Short form for properties. To dynamically send data to a
+   component we use props. Passing a prop to a function is like
+   passing an argument to a function.
+   -->Config Driven UI:-
+   It is a user Interface that is built and configured using a
+   declaration configuration file or data structure, rather than
+   being hardcoded.
+   Config is the data coming from the api which keeps on changing
+   according to different factors like user, location, etc.
+   --Unique Key id while using map-
+   Each item in the list must be uniquely identified
+   Why?
+   When we have components at same level and if a new component
+   comes on the first without ID, DOM is going to re-render all the
+   components again. As DOM can’t identify where to place it.
+   But if we give each of them a unique ID then react knows where
+   to put that component according to the ID. It is a good
+   optimization and performance thing.
+   _Note_ Never use index as keys in map. It is not recommended.
+   ---Unique Key id while using map-
+   Each item in the list must be uniquely identified
+   Why?
+   When we have components at same level and if a new component
+   comes on the first without ID, DOM is going to re-render all the
+   components again. As DOM can’t identify where to place it.
+   But if we give each of them a unique ID then react knows where
+   to put that component according to the ID. It is a good
+   optimization and performance thing.
+   Note\* Never use index as keys in map. It is not recommended.
+   Q ) Why do we use React? Some of us might wonder why we don't just stick to HTML, CSS, and JAVASCRIPT for everything we've been doing?
+   👉🏽 Of course! It's absolutely possible to accomplish everything using regular HTML, CSS and JAVASCRIPT without
+   using REACT. However, we chose React because it enhances our developer experience, making it more seamless and
+   efficient.
+   📢 NOTE:
+
+- The crucial point about State variables is that
+  whenever they update, React triggers a reconciliation
+  cycle and re-renders the component.
+- This means that as soon as the data layer changes,
+  React promptly updates the UI layer. The data layer is
+  always kept in sync with the UI layer.
+- To achieve this rapid operation, React employs a
+  reconciliation algorithm, also known as the diffing
+  algorithm or React-Fibre which we will delve into further
+  below.
+  React is often praised for its speed, have you
+  ever wondered why? 🤔
+  At the core lies React-Fiber - a powerhouse reimplementation of
+  React's algorithm. The goal of React Fiber is to increase its
+  suitability for areas like animation, layout, and gestures. Its
+  headline feature is incremental rendering: the ability to split
+  rendering work into chunks and spread it out over multiple
+  frames.
+  These days, we can use JavaScript and React alongside popular
+  libraries like GSAP (GreenSock Animation Platform) and Three.js.
+  These tools allow us to create animations and 3D designs using
+  the capabilities of JavaScript and React.
+  But how does it all work behind the scenes?
+  👉🏽 When you create elements in React, you're actually creating
+  virtual DOM objects. These virtual replicas are synced with the
+  real DOM, a process known as "Reconciliation" or the React
+  "diffing" algorithm.
+  Essentially, every rendering cycle compares the new UI blueprint
+  (updated VDOM) with the old one (previous VDOM) and makes
+  precise changes to the actual DOM accordingly.
+  It's important to understand these fundamentals in order to
+  unlock a world of possibilities for front-end developers!
+  Do you want to understand and dive deep into it?
+  👉🏽 Take a look at this awesome React Fiber architecture
+  repository on the web: https://github.com/acdlite/react-fiberarchitecture
